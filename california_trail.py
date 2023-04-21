@@ -24,10 +24,14 @@ ScreenList = {"home_screen": {"img_path": "ImageAssets\\HomeScreen\\home_screen_
               "screen_vastplain":{"img_path":"ImageAssets\\vast_plain_scene\\vast_plain_trail.png", "map_path":"ImageAssets\\vast_plain_scene\\map_california_trail_vastplain.png", "prompt": ["You find yourself in a vast plain. Though bare, it provides an indicator of the California trail.", "In the distance is a ginormous rock that would give a view of where you are going.", "Do you head towards it?"], \
                                   "option1":[None,None], "option2":["Yes", "screen_bigrock"], "option3":["No", "screen_wolfdeath"], "option4":[None,None]},\
               "screen_wolfdeath":{"img_path":"ImageAssets\\wolf_death\\wolf.png", "map_path":"ImageAssets\\wolf_death\\map_california_trail_wolfdeath.png", "prompt":["You head the other direction in the plain. Suddenly, you hear a growling", "behind you, and turn around to face a wolf. The wolf isn't so friendly, and", "it mauls you to death."],\
-                                  "option1":[None,None], "option2":[None, None], "option3":["Try again from start", "home_screen"], "option4":[None,None]},\
+                                  "option1":[None,None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None,None]},\
               "screen_bigrock":{"img_path":"ImageAssets\\big_rock_scene\\giant_rock.png", "map_path":"ImageAssets\\big_rock_scene\\map_california_trail_giant_rock.png", "prompt": ["You traverse the barren landscape, and come to the foot of the rock. After hours of climbing,", "you reach the peak, and overlook the whole of the plains. A speck of unnatural white", "in the golden grass catches your eye."],\
-                                "option1":[None,None], "option2":[None,None], "option3":["Follow", "scene_follow_rock"], "option4":[None,None]}}
-
+                                "option1":[None,None], "option2":[None,None], "option3":["Follow", "screen_fort_laramie"], "option4":[None,None]},\
+              "screen_fort_laramie":{"img_path":"ImageAssets\\scene_fortlaramie\\fort_laramie.png", "map_path":"ImageAssets\\scene_fortlaramie\\map_california_trail_fort_laramie.png", "prompt":["You trek downwards and find yourself at the foot of the rock. When you reach the bottom,", "you head in the direction of the white speck. After a long journey,", "the scene unfolds as a square fort. The title plaque at the front reads “Fort Laramie”.", "A group of men approach you. Do you ask them for directions to California?"],\
+                                    "option1":[None, None], "option2":["Yes", "screen_fort_hall"], "option3":["No", "screen_rattlesnake_death"], "option4":[None, None]}, \
+              "screen_rattlesnake_death":{"img_path":"ImageAssets\\scene_rattlesnakedeath\\rattlesnake.png", "map_path":"ImageAssets\\scene_rattlesnakedeath\\map_california_trail_rattlesnake_death.png", "prompt":["You turn to leave the men, but as you walk back through the plain,", "you are bitten by a rattlesnake."],\
+                                          "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]}, \
+              }
 # {"img_path":"", "map_path":"", "prompt":"", "option1":[], "option2":[], "option3":[], "option4":[]}
 current_screen = "home_screen"
 
@@ -103,15 +107,27 @@ while True:
       sys.exit()
     if event.type == pygame.MOUSEBUTTONDOWN:
       if(ScreenList[current_screen]["option1"][0] != None and 700 <= mouse[0] <= 1300 and 160 <= mouse[1] <= 240):
+        if(ScreenList[current_screen]["option1"][0] == "Quit"):
+          pygame.quit()
+          sys.exit()
         current_screen = ScreenList[current_screen]["option1"][1]
         game_window.fill("white")
       if(ScreenList[current_screen]["option2"][0] != None and 700 <= mouse[0] <= 1300 and 280 <= mouse[1] <= 360):
+        if(ScreenList[current_screen]["option2"][0] == "Quit"):
+          pygame.quit()
+          sys.exit()
         current_screen = ScreenList[current_screen]["option2"][1]
         game_window.fill("white")
       if(ScreenList[current_screen]["option3"][0] != None and 700 <= mouse[0] <= 1300 and 400 <= mouse[1] <= 480):
+        if(ScreenList[current_screen]["option3"][0] == "Quit"):
+          pygame.quit()
+          sys.exit()
         current_screen = ScreenList[current_screen]["option3"][1]
         game_window.fill("white")
       if(ScreenList[current_screen]["option4"][0] != None and 700 <= mouse[0] <= 1300 and 520 <= mouse[1] <= 600):
+        if(ScreenList[current_screen]["option4"][0] == "Quit"):
+          pygame.quit()
+          sys.exit()
         current_screen = ScreenList[current_screen]["option4"][1]
         game_window.fill("white")
     
