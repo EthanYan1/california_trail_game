@@ -31,8 +31,16 @@ ScreenList = {"home_screen": {"img_path": "ImageAssets\\HomeScreen\\home_screen_
                                     "option1":[None, None], "option2":["Yes", "screen_fort_hall"], "option3":["No", "screen_rattlesnake_death"], "option4":[None, None]}, \
               "screen_rattlesnake_death":{"img_path":"ImageAssets\\scene_rattlesnakedeath\\rattlesnake.png", "map_path":"ImageAssets\\scene_rattlesnakedeath\\map_california_trail_rattlesnake_death.png", "prompt":["You turn to leave the men, but as you walk back through the plain,", "you are bitten by a rattlesnake."],\
                                           "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]}, \
+              "screen_fort_hall":{"img_path":"ImageAssets\\scene_forthall\\fort_hall.png", "map_path":"ImageAssets\\scene_forthall\\map_california_trail_forthall.png", "prompt":[" The men tell you to follow aside a mountain range until you reach a second fort, Fort Hall.", "you follow their instructions and reach the fort. There, the officer in charge", "offers two options to California."],\
+                                  "option1":[None, None], "option2":["Take a train", "screen_train"], "option3":["Walk", "screen_basin1"], "option4":[None, None]},\
+              "screen_basin1":{"img_path":"ImageAssets\\first_basin_scene\\great_basin.png", "map_path":"ImageAssets\\first_basin_scene\\map_california_trail_basin1.png", "prompt":["You decide to walk. Taking the long route is tiring, and after hours of traveling,", "you come across a straight path. A large basin comes into view, with a boat on its shore."],\
+                              "option1":[None, None], "option2":[None, None], "option3":["Go straight", "screen_basin2"], "option4":[None, None]},\
+              "screen_train":{"img_path":"ImageAssets\\train_scene\\train_scene.png", "map_path":"ImageAssets\\train_scene\\map_california_trail_train.png", "prompt":["You decide to take the train. Passing through an area the Union is considering “Nevada”,", "the train breaks down and you are forced to walk."],\
+                              "option1":[None, None], "option2":[None, None], "option3":["Go straight", "screen_basin2"], "option4":[None, None]},\
+              "screen_basin2":{"img_path":"ImageAssets\\second_basin_scene\\great_basin_lake.png", "map_path":"ImageAssets\\second_basin_scene\\map_california_trail_basin2.png", "prompt":["You follow the straight path and come across a large basin. ", "A boat lies at the water’s edge."],\
+                               "option1":[None, None], "option2":["Follow the basin edge", "screen_coyote_death"], "option3":["Cross the water", "screen_rapid_speed"], "option4":[None, None]},\
               }
-# {"img_path":"", "map_path":"", "prompt":"", "option1":[], "option2":[], "option3":[], "option4":[]}
+# {"img_path":"", "map_path":"", "prompt":[], "option1":[], "option2":[], "option3":[], "option4":[]}
 current_screen = "home_screen"
 
 mouse = pygame.mouse.get_pos()
@@ -45,7 +53,6 @@ def load_screen(img_path, map_path, prompt, op_1=None, op_2=None, op_3=None, op_
   game_window.blit(trail_img, (80, 90))
   game_window.blit(map_img, (80, 370))
 
-  # prompt = ["Hello ", "World"]
   i = 0
   for line in prompt:
     prompt_text = FONT.render(line, True, "black") # render prompt
