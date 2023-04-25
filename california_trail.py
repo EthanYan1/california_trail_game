@@ -11,11 +11,15 @@ pygame.init()
 
 # pygame.font.init()
 FONT = pygame.font.SysFont("Corbel", 20)
+CHOICE_FONT = pygame.font.SysFont("Impact", 20)
 TITLE_FONT = pygame.font.SysFont("Comic Sans MS", 30)
 
 game_window = pygame.display.set_mode((1400, 800))
 pygame.display.set_caption('California Trail Game')
 game_window.fill("white")
+
+background_img = pygame.image.load("ImageAssets\\california_trail_background.png").convert_alpha()
+game_window.blit(background_img, (0,0))
 
 ScreenList = {"home_screen": {"img_path": "ImageAssets\\HomeScreen\\home_screen_trail.png", "map_path" :  "ImageAssets\\HomeScreen\\map_california_trail_homescreen.png", "prompt": ["You, a glory-seeking American from Missouri, are ready to pack up your peaceful", "and chase a life of adventure and riches in California! But not everything", "is bliss, as you will need to choose carefully how you get there,", "through the California Trail... Press Play to continue."],\
                               "option1":[None, None], "option2" : [None, None], "option3" : ["Play", "screen_entertrail"], "option4" : [None, None]},\
@@ -91,7 +95,7 @@ def load_screen(img_path, map_path, prompt, op_1=None, op_2=None, op_3=None, op_
       pygame.draw.rect(game_window, color_light,[700, 160, 600, 80])
     else:
       pygame.draw.rect(game_window, color_dark,[700, 160, 600, 80])
-    op_1_text = FONT.render(op_1, True, "black")
+    op_1_text = CHOICE_FONT.render(op_1, True, "white")
     op_1_rect = op_1_text.get_rect()
     op_1_rect.center = (1000, 200)
     game_window.blit(op_1_text, op_1_rect)
@@ -101,7 +105,7 @@ def load_screen(img_path, map_path, prompt, op_1=None, op_2=None, op_3=None, op_
       pygame.draw.rect(game_window, color_light,[700, 280, 600, 80])
     else:
       pygame.draw.rect(game_window, color_dark,[700, 280, 600, 80])
-    op_2_text = FONT.render(op_2, True, "black")
+    op_2_text = CHOICE_FONT.render(op_2, True, "white")
     op_2_rect = op_2_text.get_rect()
     op_2_rect.center = (1000, 320)
     game_window.blit(op_2_text, op_2_rect)
@@ -111,7 +115,7 @@ def load_screen(img_path, map_path, prompt, op_1=None, op_2=None, op_3=None, op_
       pygame.draw.rect(game_window, color_light,[700, 400, 600, 80])
     else:
       pygame.draw.rect(game_window, color_dark,[700, 400, 600, 80])
-    op_3_text = FONT.render(op_3, True, "black")
+    op_3_text = CHOICE_FONT.render(op_3, True, "white")
     op_3_rect = op_3_text.get_rect()
     op_3_rect.center = (1000, 440)
     game_window.blit(op_3_text, op_3_rect)
@@ -121,7 +125,7 @@ def load_screen(img_path, map_path, prompt, op_1=None, op_2=None, op_3=None, op_
       pygame.draw.rect(game_window, color_light,[700, 520, 600, 80])
     else:
       pygame.draw.rect(game_window, color_dark,[700, 520, 600, 80])
-    op_4_text = FONT.render(op_4, True, "black")
+    op_4_text = CHOICE_FONT.render(op_4, True, "white")
     op_4_rect = op_4_text.get_rect()
     op_4_rect.center = (1000, 560)
     game_window.blit(op_4_text, op_4_rect)
@@ -144,30 +148,34 @@ while True:
           sys.exit()
         current_screen = ScreenList[current_screen]["option1"][1]
         game_window.fill("white")
+        game_window.blit(background_img, (0,0))
       if(ScreenList[current_screen]["option2"][0] != None and 700 <= mouse[0] <= 1300 and 280 <= mouse[1] <= 360):
         if(ScreenList[current_screen]["option2"][0] == "Quit" or ScreenList[current_screen]["option2"][0] == "Exit the game"):
           pygame.quit()
           sys.exit()
         current_screen = ScreenList[current_screen]["option2"][1]
         game_window.fill("white")
+        game_window.blit(background_img, (0,0))
       if(ScreenList[current_screen]["option3"][0] != None and 700 <= mouse[0] <= 1300 and 400 <= mouse[1] <= 480):
         if(ScreenList[current_screen]["option3"][0] == "Quit" or ScreenList[current_screen]["option3"][0] == "Exit the game"):
           pygame.quit()
           sys.exit()
         current_screen = ScreenList[current_screen]["option3"][1]
         game_window.fill("white")
+        game_window.blit(background_img, (0,0))
       if(ScreenList[current_screen]["option4"][0] != None and 700 <= mouse[0] <= 1300 and 520 <= mouse[1] <= 600):
         if(ScreenList[current_screen]["option4"][0] == "Quit" or ScreenList[current_screen]["option4"][0] == "Exit the game"):
           pygame.quit()
           sys.exit()
         current_screen = ScreenList[current_screen]["option4"][1]
         game_window.fill("white")
+        game_window.blit(background_img, (0,0))
     
     load_screen(ScreenList[current_screen]["img_path"], ScreenList[current_screen]["map_path"], ScreenList[current_screen]["prompt"], ScreenList[current_screen]["option1"][0], ScreenList[current_screen]["option2"][0], ScreenList[current_screen]["option3"][0], ScreenList[current_screen]["option4"][0])
     #load_screen("california_trail_project\\ImageAssets\\HomeScreen\\home_screen_trail.png", "california_trail_project\\ImageAssets\\HomeScreen\\map_california_trail_homescreen.png", "Sample... Question?", "Next")
   title_text = TITLE_FONT.render("California Trail Game", True, "black")
   title_text_rect = title_text.get_rect()
-  title_text_rect.center = (700, 10)
+  title_text_rect.center = (700, 20)
   game_window.blit(title_text, title_text_rect)
   # prompt_text = 
   pygame.display.update()
