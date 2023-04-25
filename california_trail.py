@@ -38,8 +38,33 @@ ScreenList = {"home_screen": {"img_path": "ImageAssets\\HomeScreen\\home_screen_
               "screen_train":{"img_path":"ImageAssets\\train_scene\\train_scene.png", "map_path":"ImageAssets\\train_scene\\map_california_trail_train.png", "prompt":["You decide to take the train. Passing through an area the Union is considering “Nevada”,", "the train breaks down and you are forced to walk."],\
                               "option1":[None, None], "option2":[None, None], "option3":["Go straight", "screen_basin2"], "option4":[None, None]},\
               "screen_basin2":{"img_path":"ImageAssets\\second_basin_scene\\great_basin_lake.png", "map_path":"ImageAssets\\second_basin_scene\\map_california_trail_basin2.png", "prompt":["You follow the straight path and come across a large basin. ", "A boat lies at the water’s edge."],\
-                               "option1":[None, None], "option2":["Follow the basin edge", "screen_coyote_death"], "option3":["Cross the water", "screen_rapid_speed"], "option4":[None, None]},\
-              }
+                               "option1":[None, None], "option2":["Follow the basin edge", "screen_coyote_death"], "option3":["Cross the water", "screen_forest_edge"], "option4":[None, None]},\
+              "screen_coyote_death":{"img_path":"ImageAssets\\coyote_death\\coyote.png", "map_path":"ImageAssets\\coyote_death\\map_california_trail_coyote.png", "prompt":["You follow the basin and reach a waterfall. You turn back and", "encounter an unfriendly coyote. "],\
+                                     "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]},\
+              "screen_forest_edge":{"img_path":"ImageAssets\\scene_forest_edge\\forest.png", "map_path":"ImageAssets\\scene_forest_edge\\map_california_trail_forest.png", "prompt":["You cross the brook, and the edge of the forest is close.", "Do you continue on the path?"],\
+                                    "option1":[None, None], "option2":["North", "screen_smoke"], "option3":["South", "screen_cliff_death"], "option4":["Continue West", "screen_mountain_range"]},\
+              "screen_cliff_death":{"img_path":"ImageAssets\\cliff_death\\cliff.png", "map_path":"ImageAssets\\cliff_death\\map_california_trail_cliff.png", "prompt":["You move South, but come across a cliffside. You attempt to continue", " trekking on the cliffside, but the soil beneath your feet suddenly", "caves in, causing you to slip off the edge and fall through the air."],\
+                                    "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]},\
+              "screen_smoke":{"img_path":"ImageAssets\\scene_smoke\\smoke_trees.png", "map_path":"ImageAssets\\scene_smoke\\map_california_trail_smoke.png", "prompt":["You walk North and reach an incline. You travel up the hillside and", "reach a mass of thick bushes. Pushing through the thickets,", "you see smoke rise from above the trees."],\
+                              "option1":[None, None], "option2":["Go towards the smoke", "screen_natives_death"], "option3":["Turn back", "screen_woods_death"], "option4":[None, None]},\
+              "screen_natives_death":{"img_path":"ImageAssets\\natives_death\\native_camp.png", "map_path":"ImageAssets\\natives_death\\map_california_trail_nativedeath.png", "prompt":[" You reach the smoke, but, to your dismay, the creators of the source are Native Americans.", "Unaware you mean no harm, they take you captive."],\
+                                      "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]},\
+              "screen_woods_death":{"img_path":"ImageAssets\\woods_death\\night_woods.png", "map_path":"ImageAssets\\woods_death\\map_california_trail_woodsdeath.png", "prompt":["You go back down the mountain, but can’t seem to find where", "you originally came from. Night sets in, and you become", "prey in the thick woods."],\
+                                    "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]},\
+              "screen_mountain_range":{"img_path":"ImageAssets\\scene_mountains\\sierra_nevada.png", "map_path":"ImageAssets\\scene_mountains\\map_california_trail_sierranevada.png", "prompt":["You travel west, and exit the forest. A grand mountainside unfolds in", "front of you. This must be the mountain range", "so many Americans fear."],\
+                                       "option1":[None, None], "option2":["Travel around the mountain range", "screen_mountain_win"], "option3":["Travel through the mountain range", "screen_night_mountains"], "option4":[None, None]},\
+              "screen_mountain_win":{"img_path":"ImageAssets\\mountain_win\\welcome_california.png", "map_path":"ImageAssets\\mountain_win\\map_california_trail_win.png", "prompt":["You take the safe option and go around. Though it takes multiple days,", "the range is now behind you. Eventually a sign in the distance captures", "your attention, and when reached, it reads: WELCOME TO CALIFORNIA", "", "Congratulations! You won!"],\
+                                     "option1":[None, None], "option2":["Exit the game", None], "option3":[None, None], "option4":[None, None]},\
+              "screen_night_mountains":{"img_path":"ImageAssets\\scene_night_mountain\\mountain_range.png", "map_path":"ImageAssets\\scene_night_mountain\\map_california_trail_sierranevada.png", "prompt":["You take your chances through the mountain range. It’ll take too", "long otherwise. Quickly, night falls, which leaves two options."],\
+                                        "option1":[None, None], "option2":["Keep going", "screen_hypothermia_death"], "option3":["Set up camp", "screen_mountain_camp"], "option4":[None, None]},\
+              "screen_hypothermia_death":{"img_path":"ImageAssets\\hypothermia_death\\black_gradient.png", "map_path":"ImageAssets\\hypothermia_death\\map_california_trail_hypothermia.png", "prompt":["You keep going, but underestimate the cold environment of the mountains.", "Hypothermia quickly sets in, and you succumb to the cold."],\
+                                          "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]},\
+              "screen_mountain_camp":{"img_path":"ImageAssets\\scene_mountain_camp\\mountain_range.png", "map_path":"ImageAssets\\scene_mountain_camp\\map_california_trail_sierranevada.png", "prompt":["You set up camp, and though the mountains are far colder than imagined,", "the small fire keeps hypothermia away. The next morning you set out,", "but must go one way around a mountain. Which way?"],\
+                                      "option1":[None, None], "option2":["Left", "screen_wolfdeath2"], "option3":["Right", "screen_meadow_win"], "option4":[None, None]},\
+              "screen_wolfdeath2":{"img_path":"ImageAssets\\second_wolf_death\\wolf_pack.png", "map_path":"ImageAssets\\second_wolf_death\\map_california_trail_sierranevada.png", "prompt":["You go left, but run into a pack of hungry wolves."],\
+                                   "option1":[None, None], "option2":["Quit", None], "option3":["Try again from start", "home_screen"], "option4":[None, None]},\
+              "screen_meadow_win":{"img_path":"ImageAssets\\meadow_win\\welcome_california.png", "map_path":"ImageAssets\\meadow_win\\map_california_trail_win.png", "prompt":["You circle the mountain with no issue, and at midday you find yourself in a meadow.", "There’s a sign in the distance, which says when reached: WELCOME TO CALIFORNIA", "", "Congratulations! You Won!"],\
+                                   "option1":[None, None], "option2":["Exit the game", None], "option3":[None, None], "option4":[None, None]}}
 # {"img_path":"", "map_path":"", "prompt":[], "option1":[], "option2":[], "option3":[], "option4":[]}
 current_screen = "home_screen"
 
@@ -114,25 +139,25 @@ while True:
       sys.exit()
     if event.type == pygame.MOUSEBUTTONDOWN:
       if(ScreenList[current_screen]["option1"][0] != None and 700 <= mouse[0] <= 1300 and 160 <= mouse[1] <= 240):
-        if(ScreenList[current_screen]["option1"][0] == "Quit"):
+        if(ScreenList[current_screen]["option1"][0] == "Quit" or ScreenList[current_screen]["option1"][0] == "Exit the game"):
           pygame.quit()
           sys.exit()
         current_screen = ScreenList[current_screen]["option1"][1]
         game_window.fill("white")
       if(ScreenList[current_screen]["option2"][0] != None and 700 <= mouse[0] <= 1300 and 280 <= mouse[1] <= 360):
-        if(ScreenList[current_screen]["option2"][0] == "Quit"):
+        if(ScreenList[current_screen]["option2"][0] == "Quit" or ScreenList[current_screen]["option2"][0] == "Exit the game"):
           pygame.quit()
           sys.exit()
         current_screen = ScreenList[current_screen]["option2"][1]
         game_window.fill("white")
       if(ScreenList[current_screen]["option3"][0] != None and 700 <= mouse[0] <= 1300 and 400 <= mouse[1] <= 480):
-        if(ScreenList[current_screen]["option3"][0] == "Quit"):
+        if(ScreenList[current_screen]["option3"][0] == "Quit" or ScreenList[current_screen]["option3"][0] == "Exit the game"):
           pygame.quit()
           sys.exit()
         current_screen = ScreenList[current_screen]["option3"][1]
         game_window.fill("white")
       if(ScreenList[current_screen]["option4"][0] != None and 700 <= mouse[0] <= 1300 and 520 <= mouse[1] <= 600):
-        if(ScreenList[current_screen]["option4"][0] == "Quit"):
+        if(ScreenList[current_screen]["option4"][0] == "Quit" or ScreenList[current_screen]["option4"][0] == "Exit the game"):
           pygame.quit()
           sys.exit()
         current_screen = ScreenList[current_screen]["option4"][1]
